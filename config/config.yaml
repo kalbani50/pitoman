@@ -1,0 +1,131 @@
+# PITOMAN Trading Bot Configuration
+
+app:
+  name: "PITOMAN"
+  version: "1.0.0"
+  description: "Advanced AI-Powered Trading Bot"
+  author: "PITOMAN Team"
+  contact: "support@pitoman.ai"
+
+database:
+  name: "pitoman_db"
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+
+# General Settings
+cycle_delay: 1  # Delay between trading cycles in seconds
+debug_mode: false
+
+# Trading Settings
+trading:
+  max_pairs: 5  # Maximum number of trading pairs
+  min_position_size: 0.01  # Minimum position size as percentage of capital
+  max_position_size: 0.1  # Maximum position size as percentage of capital
+  max_leverage: 3.0  # Maximum allowed leverage
+  close_positions_on_shutdown: true  # Close all positions on shutdown
+
+# Risk Management
+risk:
+  max_drawdown: 0.2  # Maximum allowed drawdown (20%)
+  max_daily_loss: 0.05  # Maximum daily loss limit (5%)
+  max_position_risk: 0.02  # Maximum risk per position (2%)
+  risk_free_rate: 0.02  # Risk-free rate for calculations
+
+# AI Models Configuration
+ai:
+  model_path: "models"  # Path to AI models
+  update_interval: 3600  # Model update interval in seconds
+  min_confidence: 0.7  # Minimum confidence threshold for trades
+
+# Market Analysis
+analysis:
+  timeframes:
+    - "1m"
+    - "5m"
+    - "15m"
+    - "1h"
+    - "4h"
+    - "1d"
+  indicators:
+    - name: "RSI"
+      period: 14
+    - name: "MACD"
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+    - name: "Bollinger"
+      period: 20
+      std_dev: 2
+
+# Position Management
+position:
+  max_open_positions: 10
+  position_sizing:
+    method: "risk_parity"  # Options: fixed, risk_parity, kelly
+    default_size: 0.02  # Default position size (2% of capital)
+  stop_loss:
+    enabled: true
+    type: "trailing"  # Options: fixed, trailing, dynamic
+    initial_distance: 0.02  # Initial stop loss distance (2%)
+
+# Monitoring
+monitoring:
+  health_check_interval: 60  # Health check interval in seconds
+  metrics:
+    - "cpu_usage"
+    - "memory_usage"
+    - "api_latency"
+    - "trade_execution_time"
+  alerts:
+    cpu_threshold: 80  # Alert if CPU usage exceeds 80%
+    memory_threshold: 85  # Alert if memory usage exceeds 85%
+    api_latency_threshold: 1000  # Alert if API latency exceeds 1000ms
+
+# Notification Settings
+notification:
+  enabled: true
+  levels:
+    - "error"
+    - "warning"
+    - "trade"
+    - "performance"
+  channels:
+    email:
+      enabled: true
+      frequency: "instant"  # Options: instant, hourly, daily
+    telegram:
+      enabled: true
+      chat_ids: []  # List of Telegram chat IDs
+    discord:
+      enabled: true
+      channels: []  # List of Discord channels
+
+# Backup Configuration
+backup:
+  enabled: true
+  interval: 3600  # Backup interval in seconds
+  keep_days: 7  # Number of days to keep backups
+  include:
+    - "database"
+    - "models"
+    - "logs"
+    - "configurations"
+
+# Database Settings
+database:
+  type: "postgresql"  # Options: postgresql, mysql, sqlite
+  pool_size: 5
+  timeout: 30
+  retry_limit: 3
+
+# Security
+security:
+  ip_whitelist: []  # List of allowed IP addresses
+  rate_limit:
+    enabled: true
+    max_requests: 100
+    time_window: 60  # Time window in seconds
+  encryption:
+    enabled: true
+    algorithm: "AES-256"
