@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🤖 PITOMAN - بوت التداول المتقدم
 
 ## 📝 نظرة عامة
@@ -218,3 +219,7 @@ market_analysis:
 - GitHub Issues: [https://github.com/kalbani50/pitoman](https://github.com/kalbani50/pitoman)
 - البريد الإلكتروني: PTIOMAN@LIVE.COM
 
+=======
+# pitoman
+Trading bot for Binance and OKX runs as smoothly as possible without human intervention after the first run - not yet tested
+>>>>>>> 8ed59750948363050da2feadbc0d41515a3dfbe0
